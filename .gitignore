@@ -1,0 +1,9 @@
+# Project exclude paths
+/BankMyBatis/target/
+/MyBatis-001/target/
+/MyBatis-002-CRUD/target/
+/MyBatis-004-param/target/
+/MyBatis-006-dynamicSQL/target/
+/MyBatis-007-SuperMapper/target/
+/MyBatis--003-CRUD2/target/
+/parse-xml-by-dom4j/target/

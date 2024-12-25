@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.GinElmaC.Mapper.CarMapper">
+
+    <delete id="delectByIds">
+        delete from t_car where id in(
+            <foreach collection="ids" item="aaaaaa" separator=",">
+                #{aaaaaa}
+            </foreach>
+            )
+    </delete>
+
+    <insert id="insertMany">
+        insert into t_car values
+        <foreach collection="list" item="car" separator=",">
+            (null,#{car.car_num},#{car.brand},#{car.guide_price},#{car.produce_time},#{car.car_type})
+        </foreach>
+    </insert>
+
+</mapper>

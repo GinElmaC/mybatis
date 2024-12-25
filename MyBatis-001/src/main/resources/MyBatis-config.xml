@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--开启mybatis对标准日志的实现-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+
+    <!--环境-->
+    <environments default="development">
+        <!--id为development的环境-->
+        <environment id="development">
+            <!--事务管理器为JDBC-->
+            <transactionManager type="JDBC"/>
+            <!--数据源-->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/mybatis"/>
+                <property name="username" value="root"/>
+                <property name="password" value="1998229wang"/>
+                <property name="poolMaxmumActiveConnections" value="3"/>
+                <property name="poolTimeToWait" value="20"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <!--制定XxxxMapper文件的路径-->
+        <!--resource属性自动会从类的根路径下开始找资源-->
+        <mapper resource="CarMapper.xml"/>
+    </mappers>
+</configuration>

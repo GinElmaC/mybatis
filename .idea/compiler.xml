@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="MyBatis-007-SuperMapper" />
+        <module name="MyBatis-004-param" />
+        <module name="MyBatis-001" />
+        <module name="parse-xml-by-dom4j" />
+        <module name="MyBatis-002-CRUD" />
+        <module name="MyBatis--003-CRUD2" />
+        <module name="MyBatis-006-dynamicSQL" />
+        <module name="BankMyBatis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bankMyBatis" target="1.8" />
+      <module name="MyBatis-005-dynamicSQL" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

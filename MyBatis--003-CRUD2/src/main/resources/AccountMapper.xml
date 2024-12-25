@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.GinElmaC.Mapper.AccountMapper">
+    <insert id="insertAccount">
+        insert into t_bank values(#{id},#{Actno},#{Balance})
+    </insert>
+    <insert id="insertAccountUseGeneratedKeys"></insert>
+    <delete id="deleteById">
+        delete from t_bank where id = #{id}
+    </delete>
+    <update id="update">
+        update t_bank set Balance = #{Balance},Actno=#{Actno} where id = #{id}
+    </update>
+    <select id="selectById" resultType="com.GinElmaC.Pojo.Account">
+        select
+            id,
+            Actno as Actno,
+            Balance as Balance
+        from t_bank where id=#{id}
+    </select>
+    <select id="selectAll" resultType="com.GinElmaC.Pojo.Account">
+        select
+            id,
+            Actno as Actno,
+            Balance as Balance
+        from t_bank
+    </select>
+
+    <select id="selectIt" resultType="com.GinElmaC.Pojo.Account">
+        select
+            id,
+            Actno as Actno,
+            Balance as Balance
+        from t_bank
+        order by
+            Balance ${ascOrDesc}
+    </select>
+</mapper>

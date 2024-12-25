@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.GinElmaC.Mapper.ClassMapper">
+    <!--分布查询第二部，根据id查询班级-->
+    <select id="selectByCid" resultType="Classroom">
+        select cid, cname
+        from t_class
+        where cid = #{cid}
+    </select>
+
+    <!--一对多-->
+    <resultMap id="classtopeople" type="Classroom">
+        <id property="cid" column="cid"/>
+        <result property="cname" column="cname"/>
+        <collection property="list" ofType="People">
+            <id property="sid" column="sid"/>
+            <result property="sname" column="sname"/>
+        </collection>
+    </resultMap>
+    <select id="selectByCidMany" resultMap="classtopeople">
+        select c.cid,c.cname,s.sid,s.sname,s.cid
+        from t_class c left join t_people s
+        on c.cid=s.cid
+        where c.cid=#{cid}
+    </select>
+
+    <!--分布查询多对一-->
+    <resultMap id="manyToone" type="Classroom">
+        <id property="cid" column="cid"/>
+        <result property="cname" column="cname"/>
+        <collection property="list" select="com.GinElmaC.Mapper.PeopleMapper.selectByCidMany" column="cid">
+
+        </collection>
+    </resultMap>
+    <select id="selectByCidFirst" resultMap="manyToone">
+        select cid,cname
+        from t_class
+        where cid=#{cid}
+    </select>
+</mapper>
